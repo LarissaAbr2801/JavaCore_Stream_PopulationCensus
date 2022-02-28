@@ -27,7 +27,7 @@ public class Main {
                 .collect(Collectors.toList());
         System.out.println("Список фамилий призывников: " + recruits);
 
-        ByFamilyComparator comparator = new ByFamilyComparator();
+        Comparator<Person> comparator = Comparator.comparing(Person::getFamily);
         List<Person> sortedList = persons.stream()
                 .filter(person -> person.getEducation().equals(Education.HIGHER) && person.getAge() >= 18 && person.getAge() <= 65)
                 .filter(person -> (person.getSex().equals(Sex.WOMAN) && person.getAge() <= 60) ||
